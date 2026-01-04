@@ -16,7 +16,7 @@ export interface CreateTaskToDo {
     priority: TaskPriority;
     deadline: string;
 }
-export interface UpdateTask {
+export interface UpdateTaskToDo {
     id?: string;
     name?: string;
     description?: string;
