@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { getAllTasks, createTask, updateTask, removeTask } from "../controllers/taskController.ts";
-import { validateCreateTask, validateUpdateTask } from "../middlewares/validationMiddleware";
+import { getAllTasks, createTask, updateTask, removeTask } from "../controllers/taskController";
+import { validateCreateTask, validateUpdateTask } from "../middlewares/taskValidation";
 
 const router = Router();
 router.get("/", getAllTasks);
