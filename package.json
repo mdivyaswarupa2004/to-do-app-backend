@@ -4,9 +4,9 @@
   "description": "Backend for ToDo Manager using Express, TypeScript and Firebase Firestore",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "td-node src/server.ts",
     "build": "tsc",
-    "start": "ts-node src/server.ts",
+    "start": "node dist/server.js",
+    "dev": "td-node src/server.ts",
     "test": "jest",
     "coverage": "jest --coverage"
   },
