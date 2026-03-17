@@ -1,79 +1,107 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Manage Daily Tasks - Backend
 
-# Getting Started
+This is a simple backend service built with Node.js, Express, TypeScript, and Firebase Firestore.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+It provides REST API endpoints to create, read, update, and delete tasks.
 
-## Step 1: Start the Metro Server
+All tasks are stored in Firestore safely and can be used by frontend application.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Getting Started
 
-To start Metro, run the following command from the _root_ of your React Native project:
+### Clone the repository
 
 ```bash
-# using npm
+git clone https://github.com/mdivyaswarupa2004/to-do-app-backend.git
+cd to-do-app-backend
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+## Firebase Setup
+
+1. Go to [Firebase Console](https://console.firebase.google.com/) and create a new project
+2. Click on Project Settings (gear icon)
+3. Go to Service Accounts tab
+4. Click Generate New Private Key button
+5. Download the JSON file and save it as `serviceAccountKey.json` in the project root folder
+6. The file is already added to `.gitignore` so it won't be uploaded to GitHub
+
+## Environment Variables
+
+Create a `.env` file in the root folder:
+
+```env
+NODE_ENV=development
+PORT=3000
+```
+
+## Running the Server
+
+For development:
+
+```bash
+npm run dev
+```
+
+For production:
+
+```bash
+npm run build
 npm start
-
-# OR using Yarn
-yarn start
 ```
 
-## Step 2: Start your Application
+The server will start on `http://localhost:3000`
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+## API Endpoints
 
-### For Android
+All endpoints use base path `/tasks`
+
+- `GET /tasks` - Get all tasks
+- `POST /tasks` - Create a new task
+- `PUT /tasks/:id` - Update a task by id
+- `DELETE /tasks/:id` - Delete a task by id
+
+## Running Tests
+
+Run all tests:
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+npm test
 ```
 
-### For iOS
+Check test coverage:
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+npm run coverage
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## Deployment
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+This backend is deployed on Render. To deploy your own:
 
-## Step 3: Modifying your App
+1. Push code to GitHub
+2. Create account on [Render](https://render.com)
+3. Create new Web Service and connect your repository
+4. Add `serviceAccountKey.json` as a Secret File in Environment settings
+5. Set build command: `npm install && npm run build`
+6. Set start command: `npm start`
 
-Now that you have successfully run the app, let's modify it.
+## Technologies Used
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+- Node.js and Express for server
+- TypeScript for type safety
+- Firebase Firestore for database
+- Jest for testing
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+## License
 
-## Congratulations! :tada:
+MIT License => feel free to use this code for your own projects
 
-You've successfully run and modified your React Native App. :partying_face:
+## Author
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+M. Divyaswarupa  
+GitHub: [mdivyaswarupa2004](https://github.com/mdivyaswarupa2004)
